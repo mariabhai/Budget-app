@@ -30,7 +30,7 @@ expenseForm.addEventListener('submit', (event) => {
   expenseForm.reset();
   expenseDescInput.focus();
 });
-
+// Income form handling
 incomeForm.addEventListener('submit', (event) => {
   event.preventDefault();
 
