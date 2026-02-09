@@ -1,8 +1,9 @@
 :root {
-  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  font-family: 'Space Grotesk', 'Avenir Next', Avenir, 'Helvetica Neue',
+    Helvetica, Arial, sans-serif;
   line-height: 1.4;
-  color: #1b1b1b;
-  background-color: #f6f7fb;
+  color: #111827;
+  background-color: #f8f8f6;
 }
 
 * {
@@ -19,9 +20,9 @@ body {
   margin: 40px auto;
   padding: 24px;
   background: #ffffff;
-  border: 1px solid #e5e7ef;
-  border-radius: 16px;
-  box-shadow: 0 10px 30px rgba(18, 18, 18, 0.08);
+  border: 1px solid #e5e7eb;
+  border-radius: 18px;
+  box-shadow: 0 12px 30px rgba(15, 23, 42, 0.06);
 }
 
 header h1 {
@@ -30,7 +31,54 @@ header h1 {
 
 header p {
   margin: 0 0 20px;
-  color: #555b66;
+  color: #6b7280;
+}
+
+#balance-card {
+  display: flex;
+  align-items: baseline;
+  justify-content: space-between;
+  padding: 12px 14px;
+  border-radius: 12px;
+  background: #f7f7f5;
+  border: 1px solid #e5e7eb;
+  margin-bottom: 24px;
+}
+
+#balance-card.positive {
+  background: #ecfdf3;
+  border-color: #bbf7d0;
+}
+
+#balance-card.negative {
+  background: #fef2f2;
+  border-color: #fecaca;
+}
+
+#balance-card.zero {
+  background: #f7f7f5;
+  border-color: #e5e7eb;
+}
+
+#balance-card span {
+  font-weight: 600;
+  color: #6b7280;
+}
+
+.balance {
+  font-size: 1.2rem;
+}
+
+.balance.positive {
+  color: #15803d;
+}
+
+.balance.negative {
+  color: #b91c1c;
+}
+
+.balance.zero {
+  color: #0f172a;
 }
 
 form {
@@ -45,11 +93,19 @@ label {
   font-weight: 600;
 }
 
-input {
+input,
+select {
   padding: 10px 12px;
   border-radius: 10px;
-  border: 1px solid #cfd5e1;
+  border: 1px solid #e5e7eb;
   font-size: 1rem;
+  background: #ffffff;
+}
+
+input:focus,
+select:focus {
+  outline: 2px solid #111827;
+  outline-offset: 2px;
 }
 
 button {
@@ -57,19 +113,23 @@ button {
   padding: 10px 16px;
   border-radius: 10px;
   border: 0;
-  background: #1f6feb;
-  color: #ffffff;
+  background: #111827;
+  color: #f9fafb;
   font-size: 1rem;
   cursor: pointer;
 }
 
 button:hover {
-  background: #1959bd;
+  background: #0b1220;
 }
 
 section h2 {
   margin: 0 0 12px;
   font-size: 1.1rem;
+}
+
+section {
+  margin-bottom: 28px;
 }
 
 ul {
@@ -86,7 +146,38 @@ li {
   align-items: center;
   padding: 12px 14px;
   border-radius: 10px;
-  background: #f0f4ff;
+  background: #f7f7f5;
+  border: 1px solid #e5e7eb;
+}
+
+li .meta {
+  display: grid;
+  gap: 4px;
+}
+
+li small {
+  color: #6b7280;
+}
+
+li .actions {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+li .delete-btn {
+  background: transparent;
+  color: #111827;
+  border: 1px solid #d1d5db;
+  padding: 6px 10px;
+  border-radius: 8px;
+  cursor: pointer;
+  font-size: 0.9rem;
+}
+
+li .delete-btn:hover {
+  background: #111827;
+  color: #f9fafb;
 }
 
 li strong {
