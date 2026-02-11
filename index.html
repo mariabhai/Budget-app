@@ -30,7 +30,16 @@
         </div>
       </header>
 
-      <section>
+      <nav class="view-switcher" aria-label="Välj vy">
+        <button type="button" class="view-btn is-active" data-view="expense">
+          Utgifter
+        </button>
+        <button type="button" class="view-btn" data-view="income">
+          Inkomster
+        </button>
+      </nav>
+
+      <section id="expense-panel" class="entry-panel">
         <h2>Utgifter</h2>
         <form id="expense-form" autocomplete="off">
           <label>
@@ -61,7 +70,7 @@
         <ul id="expense-list"></ul>
       </section>
 
-      <section>
+      <section id="income-panel" class="entry-panel is-hidden">
         <h2>Inkomster</h2>
         <form id="income-form" autocomplete="off">
           <label>
@@ -92,6 +101,6 @@
         <ul id="income-list"></ul>
       </section>
     </div>
-    <script type="module" src="/src/main.js"></script>
+    <script type="module" src="/src/main.ts"></script>
   </body>
 </html>

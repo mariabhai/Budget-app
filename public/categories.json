@@ -1,9 +1,26 @@
-[
-  "Boende",
-  "Mat",
-  "Transport",
-  "Nöje",
-  "Sparande",
-  "Lön",
-  "Övrigt"
-]
+{
+  "expense": [
+    "Boende",
+    "Mat",
+    "Transport",
+    "Hushåll",
+    "Hälsa",
+    "Nöje",
+    "Försäkringar",
+    "Skulder/Lån",
+    "Sparande",
+    "Övrigt"
+  ],
+  "income": [
+    "Lön",
+    "CSN/Bidrag",
+    "Pension",
+    "Frilans",
+    "Eget företag",
+    "Försäljning",
+    "Investeringar (ränta/utdelning)",
+    "Gåvor",
+    "Skatteåterbäring",
+    "Övrigt"
+  ]
+}
