@@ -168,7 +168,7 @@ function setActiveView(type: BudgetItemType): void {
 }
 
 async function loadCategories(): Promise<{ expense: string[]; income: string[] }> {
-  const response = await fetch('/categories.json');
+  const response = await fetch(`${import.meta.env.BASE_URL}categories.json`);
   if (!response.ok) {
     throw new Error('Kunde inte ladda kategorier.');
   }
