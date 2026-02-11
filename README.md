@@ -68,6 +68,14 @@ Finns i `src/models.ts`:
 
 ## Validering Och Testresultat
 
+### Förhandsvisning Desktop
+
+![Förhandsvisning Desktop](public/images/preview.desktop.jpg)
+
+### Förhandsvisning Mobil
+
+![Förhandsvisning Mobil](public/images/preview.mob.jpg)
+
 ### Lighthouse Desktop
 
 ![Lighthouse Desktop](public/images/lighthouse.desktop.jpg)
