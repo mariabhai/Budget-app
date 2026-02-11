@@ -47,10 +47,14 @@ const loadItems = (): BudgetItem[] => {
 };
 
 function getItemLists(): BudgetItemLists {
-  return {
-    expense: items.filter((item) => item.type === 'expense'),
-    income: items.filter((item) => item.type === 'income'),
-  };
+  return items.reduce<BudgetItemLists>(
+    (lists, item) => {
+      if (item.type === 'expense') lists.expense.push(item);
+      else lists.income.push(item);
+      return lists;
+    },
+    { expense: [], income: [] },
+  );
 }
 
 function renderBalance(): void {
@@ -81,6 +85,8 @@ function createItemElement(item: BudgetItem): HTMLLIElement {
       <button class="delete-btn" type="button" aria-label="Radera">Radera</button>
     </div>
   `;
+  const deleteButton = li.querySelector<HTMLButtonElement>('.delete-btn');
+  deleteButton?.addEventListener('click', () => deleteItem(item.id));
   return li;
 }
 
@@ -135,15 +141,6 @@ function bindForm(
   });
 }
 
-function handleDeleteClick(event: MouseEvent): void {
-  const target = event.target as HTMLElement | null;
-  const button = target?.closest<HTMLButtonElement>('.delete-btn');
-  if (!button) return;
-  const li = button.closest<HTMLLIElement>('li');
-  if (!li?.dataset.id) return;
-  deleteItem(li.dataset.id);
-}
-
 function populateCategories(select: HTMLSelectElement, categories: string[]): void {
   select.innerHTML = '<option value="" selected disabled>Välj kategori</option>';
   categories.forEach((category) => {
@@ -170,25 +167,11 @@ async function loadCategories(): Promise<{ expense: string[]; income: string[] }
     throw new Error('Kunde inte ladda kategorier.');
   }
 
-  const data = (await response.json()) as unknown;
-  if (Array.isArray(data)) {
-    return {
-      expense: data as string[],
-      income: data as string[],
-    };
-  }
-
-  if (typeof data === 'object' && data !== null) {
-    const expense = (data as { expense?: unknown }).expense;
-    const income = (data as { income?: unknown }).income;
-
-    return {
-      expense: Array.isArray(expense) ? (expense as string[]) : [],
-      income: Array.isArray(income) ? (income as string[]) : [],
-    };
-  }
-
-  return { expense: [], income: [] };
+  const data = (await response.json()) as { expense?: unknown; income?: unknown };
+  return {
+    expense: Array.isArray(data.expense) ? (data.expense as string[]) : [],
+    income: Array.isArray(data.income) ? (data.income as string[]) : [],
+  };
 }
 
 async function init(): Promise<void> {
@@ -213,8 +196,5 @@ viewButtons.forEach((button) => {
 });
 
 setActiveView('expense');
-
-expenseList.addEventListener('click', handleDeleteClick);
-incomeList.addEventListener('click', handleDeleteClick);
 
 init();
