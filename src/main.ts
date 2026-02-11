@@ -74,6 +74,8 @@ function renderBalance(): void {
 
 function createItemElement(item: BudgetItem): HTMLLIElement {
   const li = document.createElement('li');
+  const signedAmount =
+    item.type === 'income' ? `+ ${formatMoney(item.amount)}` : `- ${formatMoney(item.amount)}`;
   li.dataset.id = item.id;
   li.innerHTML = `
     <div class="meta">
@@ -81,7 +83,7 @@ function createItemElement(item: BudgetItem): HTMLLIElement {
       <small>${item.category}</small>
     </div>
     <div class="actions">
-      <strong>${formatMoney(item.amount)}</strong>
+      <strong>${signedAmount}</strong>
       <button class="delete-btn" type="button" aria-label="Radera">Radera</button>
     </div>
   `;

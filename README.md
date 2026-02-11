@@ -66,6 +66,28 @@ Finns i `src/models.ts`:
 - `BudgetItem` för en enskild post
 - `BudgetItemLists` för listor av `expense` och `income`
 
+## Validering Och Testresultat
+
+### Lighthouse Desktop
+
+![Lighthouse Desktop](public/images/lighthouse.desktop.jpg)
+
+### Lighthouse Mobil
+
+![Lighthouse Mobil](public/images/lighthouse.mob.jpg)
+
+### HTML Validator
+
+![HTML Validator](public/images/html.valid.jpg)
+
+### CSS Validator
+
+![CSS Validator](public/images/css.valid.jpg)
+
+### Firefox Accessibility
+
+![Firefox Accessibility](public/images/firefox.a11y.jpg)
+
 ## Publicering
 
 Projektet deployas via GitHub Actions (`.github/workflows/pages.yml`) till GitHub Pages vid push till `main`.
