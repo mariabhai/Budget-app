@@ -3,24 +3,21 @@
   <head>
     <meta charset="UTF-8" />
     <link rel="icon" type="image/svg+xml" href="/vite.svg" />
-    <link
-      rel="preconnect"
-      href="https://fonts.googleapis.com"
-    />
-    <link
-      rel="preconnect"
-      href="https://fonts.gstatic.com"
-      crossorigin
-    />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link
       href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600&display=swap"
       rel="stylesheet"
     />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta
+      name="description"
+      content="En enkel budgetapp för att lägga till inkomster och utgifter, välja kategori och följa din balans."
+    />
     <title>inl2-js</title>
   </head>
   <body>
-    <div id="app">
+    <main id="app">
       <header>
         <h1>Budget</h1>
         <p>Lägg till utgifter och inkomster.</p>
@@ -31,12 +28,8 @@
       </header>
 
       <nav class="view-switcher" aria-label="Välj vy">
-        <button type="button" class="view-btn is-active" data-view="expense">
-          Utgifter
-        </button>
-        <button type="button" class="view-btn" data-view="income">
-          Inkomster
-        </button>
+        <button type="button" class="view-btn is-active" data-view="expense">Utgifter</button>
+        <button type="button" class="view-btn" data-view="income">Inkomster</button>
       </nav>
 
       <section id="expense-panel" class="entry-panel">
@@ -49,19 +42,14 @@
 
           <label>
             Belopp (kr)
-            <input
-              id="amount"
-              type="number"
-              step="0.01"
-              min="0"
-              placeholder="0.00"
-              required
-            />
+            <input id="amount" type="number" step="0.01" min="0" placeholder="0.00" required />
           </label>
 
           <label>
             Kategori
-            <select id="expense-category" required></select>
+            <select id="expense-category" required>
+              <option value="" selected disabled>Välj kategori</option>
+            </select>
           </label>
 
           <button type="submit">Lägg till</button>
@@ -92,7 +80,9 @@
 
           <label>
             Kategori
-            <select id="income-category" required></select>
+            <select id="income-category" required>
+              <option value="" selected disabled>Välj kategori</option>
+            </select>
           </label>
 
           <button type="submit">Lägg till</button>
@@ -100,7 +90,7 @@
 
         <ul id="income-list"></ul>
       </section>
-    </div>
+    </main>
     <script type="module" src="/src/main.ts"></script>
   </body>
 </html>

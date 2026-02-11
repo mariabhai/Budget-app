@@ -2,18 +2,14 @@ module.exports = {
   root: true,
   env: {
     browser: true,
-    es2021: true
+    es2021: true,
   },
-  parser: "@typescript-eslint/parser",
-  plugins: ["@typescript-eslint"],
-  extends: [
-    "eslint:recommended",
-    "plugin:@typescript-eslint/recommended",
-    "prettier"
-  ],
+  parser: '@typescript-eslint/parser',
+  plugins: ['@typescript-eslint'],
+  extends: ['eslint:recommended', 'plugin:@typescript-eslint/recommended', 'prettier'],
   parserOptions: {
-    ecmaVersion: "latest",
-    sourceType: "module"
+    ecmaVersion: 'latest',
+    sourceType: 'module',
   },
-  ignorePatterns: ["dist", "node_modules"]
+  ignorePatterns: ['dist', 'node_modules'],
 };

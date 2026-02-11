@@ -144,11 +144,8 @@ function handleDeleteClick(event: MouseEvent): void {
   deleteItem(li.dataset.id);
 }
 
-function populateCategories(
-  select: HTMLSelectElement,
-  categories: string[],
-): void {
-  select.innerHTML = '';
+function populateCategories(select: HTMLSelectElement, categories: string[]): void {
+  select.innerHTML = '<option value="" selected disabled>Välj kategori</option>';
   categories.forEach((category) => {
     const option = document.createElement('option');
     option.value = category;
@@ -203,20 +200,8 @@ async function init(): Promise<void> {
   renderLists();
 }
 
-bindForm(
-  'expense',
-  expenseForm,
-  expenseDescInput,
-  expenseAmountInput,
-  expenseCategorySelect,
-);
-bindForm(
-  'income',
-  incomeForm,
-  incomeDescInput,
-  incomeAmountInput,
-  incomeCategorySelect,
-);
+bindForm('expense', expenseForm, expenseDescInput, expenseAmountInput, expenseCategorySelect);
+bindForm('income', incomeForm, incomeDescInput, incomeAmountInput, incomeCategorySelect);
 
 viewButtons.forEach((button) => {
   button.addEventListener('click', () => {
